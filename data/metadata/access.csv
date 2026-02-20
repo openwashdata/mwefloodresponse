@@ -1,0 +1,3 @@
+fileName,name,contentUrl,encodingFormat
+mwefloodresponse.csv,mwefloodresponse,https://raw.githubusercontent.com/openwashdata/mwefloodresponse/main/inst/extdata/mwefloodresponse.csv,csv
+mwefloodresponse.xlsx,mwefloodresponse,https://raw.githubusercontent.com/openwashdata/mwefloodresponse/main/inst/extdata/mwefloodresponse.xlsx,ooxml
