@@ -1,5 +1,7 @@
 # Malawi Emergency Flood Response Water Point Survey (2019–2020)
 
+[![DOI](https://zenodo.org/badge/1162600560.svg)](https://doi.org/10.5281/zenodo.18755616)
+
 This dataset contains water point assessment data collected during an
 emergency flood response in Malawi between 2019 and 2020. The survey was
 conducted under the BASEflow program to evaluate the status,
