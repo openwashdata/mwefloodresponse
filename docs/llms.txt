@@ -1,0 +1,227 @@
+# Malawi Emergency Flood Response Water Point Survey (2019–2020)
+
+This dataset contains water point assessment data collected during an
+emergency flood response in Malawi between 2019 and 2020. The survey was
+conducted under the BASEflow program to evaluate the status,
+functionality, and safety of water points affected by flooding events.
+
+Data collection and subsequent data cleaning were conducted using the
+mWater platform. The dataset includes geospatial coordinates,
+functionality status, user population estimates, reported mechanical and
+structural issues, pumping performance metrics, sediment observations,
+and field-based water quality test information.
+
+The survey covered the following districts in Malawi:
+
+- Zomba
+
+- Mangochi
+
+- Chikwawa
+
+- Balaka
+
+- Nsanje
+
+- Blantyre
+
+- Machinga
+
+The primary purpose of this dataset is to support emergency response
+planning, infrastructure rehabilitation prioritization, and monitoring
+of rural water supply systems in flood-affected areas.
+
+This dataset can be used for:
+
+1.  Humanitarian WASH (Water, Sanitation, and Hygiene) response analysis
+
+2.  Geospatial mapping of water point functionality
+
+3.  Infrastructure vulnerability assessments
+
+4.  Evidence-based resource allocation during disaster recovery
+
+## Installation
+
+You can install the development version of mwefloodresponse from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("openwashdata/mwefloodresponse")
+```
+
+``` r
+## Run the following code in console if you don't have the packages
+## install.packages(c("dplyr", "knitr", "readr", "stringr", "gt", "kableExtra"))
+library(dplyr)
+library(knitr)
+library(readr)
+library(stringr)
+library(gt)
+library(kableExtra)
+```
+
+Alternatively, you can download the individual datasets as a CSV or XLSX
+file from the table below.
+
+1.  Click Download CSV. A window opens that displays the CSV in your
+    browser.
+2.  Right-click anywhere inside the window and select “Save Page As…”.
+3.  Save the file in a folder of your choice.
+
+| dataset | CSV | XLSX |
+|:---|:---|:---|
+| mwefloodresponse | [Download CSV](https://github.com/openwashdata/mwefloodresponse/raw/main/inst/extdata/mwefloodresponse.csv) | [Download XLSX](https://github.com/openwashdata/mwefloodresponse/raw/main/inst/extdata/mwefloodresponse.xlsx) |
+
+## Data
+
+The package provides access to water point assessment data collected
+during an emergency flood response in Malawi between 2019 and 2020.
+
+``` r
+library(mwefloodresponse)
+```
+
+### metadata
+
+The dataset `mwefloodresponse` contains 319 observations and 40
+variables
+
+``` r
+mwefloodresponse |> 
+  head(3) |> 
+  gt::gt() |>
+  gt::as_raw_html()
+```
+
+| submitted_on | district | community | people_using | photo_water_point | latitude | longitude | depth | currently_submerged | likely_submerged | functional_status | water_pump_possible | problems_reported | water_quality_problems | civil_works_problems | photo_civil_works | pump_problems | photo_pump_problems | pump_operational_feel | time_to_pump_20l | strokes_to_yield | sediment_presence | water_quality_tests | electrical_conductivity | conductivity_units | total_dissolved_solids | ph | temperature_c | turbidity_tube | turbidity_tube_units | turbidity_electronic_ntu | comments | microbiological_test | test_method | sample_type | sample_date | color_change_mpn | color_change_upper95 | color_change_health | color_change_image |
+|---:|:---|:---|---:|:---|---:|---:|---:|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|---:|---:|:---|:---|---:|:---|---:|---:|---:|---:|:---|---:|:---|:---|:---|:---|---:|---:|---:|:---|:---|
+| 4/5/2019 | Nsanje | Sandram village | 0 | <https://api.mwater.co/v3/images/06b48d45a7e447ba8f95d763f9820ea5>; <https://api.mwater.co/v3/images/26cc941b0cc248eeb53189bba709e7d2> | -16.46502 | 35.18280 | 48.0 | No | Yes | Not functional | NA | Soil erosion or collapse around the water point, Damage or problem with pump | NA | NA | NA | Pump loose at the point of attachment, Damage to pump head or handle | <https://api.mwater.co/v3/images/c8377d0c3efa43c188aab9fd89cc2fe1> | Handle cannot be moved | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | NA | No water coming out of the borehole, it hasn’t been functional for about a year | NA | NA | NA | NA | NA | NA | NA | NA |
+| 4/7/2019 | Nsanje | Khope scho | 358 | <https://api.mwater.co/v3/images/0ab79f294201470395abbe65e637f8bf>; <https://api.mwater.co/v3/images/a27544c1609f40fcb68ace6b53fc2c53> | -16.64987 | 35.19275 | NA | No | No | Partially functional but in need of repair | Yes | Water quality, Damage to civil works - platform, well head, riser etc | Bad taste, Salinity / saltiness | Platform cracked or damaged , Pedestal cracked or damaged, Drainage channel cracked, broken, or in need of cleaning, Fence/barrier is missing or damaged | <https://api.mwater.co/v3/images/af75be3379634e9a8e9a644c9bb64330> | NA | NA | Significant friction (very stiff) on up stroke, Significant friction (very stiff) at all times, Can only be moved with extreme force, Significant sideways movement on handle (loose/wobbly) | 204.214 | 5 | Present | Electrical conductivity (EC), pH, Temperature, Turbidity (by Turbidity Tube), Turbidity (by electronic turbidimeter), Microbiological or fecal indicator test | 9.15 | Î¼S / cm | NA | 7.8 | 35.7 | 5 | JTU | NA | The bolehole is totally broken down when pumping water so many rickadges making water difficult to feel the 20 little backet | E. coli | Aquagenx Compartment Bag Test (CBT) | Point of collection | 4/6/2019 | 100 | 9435.1 | unsafe | <https://api.mwater.co/v3/images/45608ae9ae8f47189ad3e3914541b2ee> |
+| 4/7/2019 | Nsanje | Khope school | 1065 | <https://api.mwater.co/v3/images/37e765754f3c4785a030a7339c5fa4a3>; <https://api.mwater.co/v3/images/2f1d237eb79e4dfc9f10e09ba5a13a91> | -16.64930 | 35.19196 | 38.7 | No | No | Partially functional but in need of repair | Yes | Water quality | Bad taste, Salinity / saltiness | NA | NA | NA | NA | Very light | 58.956 | 2 | Absent | Electrical conductivity (EC), pH, Temperature, Turbidity (by Turbidity Tube) | 4.36 | mS / cm | NA | 7.6 | 33.5 | 5 | JTU | NA | The person I talked to complained about salty water said they used the water just for washing | E. coli | Aquagenx Compartment Bag Test (CBT) | Point of collection | 4/5/2019 | 100 | 9435.1 | unsafe | <https://api.mwater.co/v3/images/68e2c5cada9b4d3186f4ebde835a5f2f> |
+
+For an overview of the variable names, see the following table.
+
+| variable_name | variable_type | description |
+|:--------------|:--------------|:------------|
+| NA            | NA            | NA          |
+| :————-        | :————-        | :———–       |
+
+## Example
+
+``` r
+library(mwefloodresponse)
+
+# Visualization 1: Map of Water Points
+# Show waterpoint functionality
+# Load required libraries
+library(leaflet)
+library(dplyr)
+library(htmltools)
+library(scales)
+
+# Validate coordinates
+df <- mwefloodresponse %>%
+  mutate(
+    latitude = as.numeric(latitude),
+    longitude = as.numeric(longitude),
+    people_using = as.numeric(people_using)
+  ) %>%
+  filter(!is.na(latitude), !is.na(longitude))
+
+# Assign specific colors to each functional status category
+status_pal <- colorFactor(
+  palette = c(
+    "Functional" = "green",
+    "Partially Functional" = "orange",
+    "Not Functional" = "red"
+  ),
+  domain = df$functional_status
+)
+
+# Rescale number of people using the water point
+# Bubble size will range between 4 and 15
+df <- df %>%
+  mutate(
+    people_scaled = rescale(people_using, to = c(4, 15))
+  )
+
+# Displays district, community, status, population, problems, and water quality result
+df <- df %>%
+  mutate(
+    popup_content = paste0(
+      "<b>District:</b> ", district, "<br>",
+      "<b>Community:</b> ", community, "<br>",
+      "<b>Functional Status:</b> ", functional_status, "<br>",
+      "<b>People Using:</b> ", people_using, "<br>",
+      "<b>Problems Reported:</b> ", 
+        ifelse(is.na(problems_reported), "None reported", problems_reported), "<br>",
+      "<b>Water Quality Result:</b> ", 
+        ifelse(is.na(color_change_health), "No test result", color_change_health)
+    )
+  )
+
+leaflet(df) %>%
+  
+  # Add base map tiles
+  addProviderTiles("CartoDB.Positron") %>%
+  
+  # Add circle markers for each water point
+  addCircleMarkers(
+    lng = ~longitude,                  
+    lat = ~latitude,                   
+    radius = ~people_scaled,           
+    fillColor = ~status_pal(functional_status),  
+    color = "#333333",                 
+    weight = 1,                        
+    fillOpacity = 0.8,                 
+    popup = ~HTML(popup_content)      
+  ) %>%
+  
+  # Add legend to explain functional status colors
+  addLegend(
+    "bottomright",
+    pal = status_pal,
+    values = ~functional_status,
+    title = "Functional Status",
+    opacity = 1
+  )
+```
+
+## License
+
+Data are available as
+[CC-BY](https://github.com/openwashdata/%7B%7B%7Bpackagename%7D%7D%7D/blob/main/LICENSE.md).
+
+## Citation
+
+Please cite this package using:
+
+``` r
+citation("mwefloodresponse")
+#> To cite package 'mwefloodresponse' in publications use:
+#> 
+#>   Mhango E (2026). _mwefloodresponse: Malawi Emergency Flood Response
+#>   Water Point Survey (2019–2020)_. R package version 0.0.0.9000,
+#>   <https://github.com/openwashdata/mwefloodresponse>.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {mwefloodresponse: Malawi Emergency Flood Response Water Point Survey (2019–2020)},
+#>     author = {Emmanuel Mhango},
+#>     year = {2026},
+#>     note = {R package version 0.0.0.9000},
+#>     url = {https://github.com/openwashdata/mwefloodresponse},
+#>   }
+```
+
+# Package index
+
+## All functions
+
+- [`mwefloodresponse`](https://github.com/openwashdata/mwefloodresponse/reference/mwefloodresponse.md)
+  : mwefloodresponse: Malawi Emergency Flood Response Water Point Survey
+  (2019–2020)
+

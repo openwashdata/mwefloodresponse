@@ -1,0 +1,41 @@
+directory,file_name,variable_name,variable_type,description
+data/,mwefloodresponse.rda,submitted_on,character,Date and time the survey record was submitted
+data/,mwefloodresponse.rda,district,character,Administrative district where the water point is located
+data/,mwefloodresponse.rda,community,character,Name of the local community or village
+data/,mwefloodresponse.rda,people_using,numeric,Number of people currently using the water point
+data/,mwefloodresponse.rda,photo_water_point,character,link of photo showing the water point
+data/,mwefloodresponse.rda,latitude,numeric,GPS latitude of the water point
+data/,mwefloodresponse.rda,longitude,numeric,GPS longitude of the water point
+data/,mwefloodresponse.rda,depth,numeric,Measured depth of the water source
+data/,mwefloodresponse.rda,currently_submerged,character,Indicator of whether the water point is submerged at the time of survey
+data/,mwefloodresponse.rda,likely_submerged,character,Assessment of whether the water point was submerged during the recent flooding
+data/,mwefloodresponse.rda,functional_status,character,Operational status of the water point
+data/,mwefloodresponse.rda,water_pump_possible,character,Ability to pump water at the time of the visit
+data/,mwefloodresponse.rda,problems_reported,character,Observed or reported problems at the water point
+data/,mwefloodresponse.rda,water_quality_problems,character,Issues affecting water quality
+data/,mwefloodresponse.rda,civil_works_problems,character,Problems affecting the water point infrastructure
+data/,mwefloodresponse.rda,photo_civil_works,character,link of photo showing civil works problems
+data/,mwefloodresponse.rda,pump_problems,character,Problems observed with the water pump
+data/,mwefloodresponse.rda,photo_pump_problems,character,link of photo showing pump problems
+data/,mwefloodresponse.rda,pump_operational_feel,character,Subjective assessment of the pump operation
+data/,mwefloodresponse.rda,time_to_pump_20l,numeric,Time taken to pump 20 liters of water
+data/,mwefloodresponse.rda,strokes_to_yield,numeric,Number of strokes required to yield water
+data/,mwefloodresponse.rda,sediment_presence,character,Presence or absence of sediment in the water
+data/,mwefloodresponse.rda,water_quality_tests,character,Field tests performed on water quality
+data/,mwefloodresponse.rda,electrical_conductivity,numeric,Measured electrical conductivity of the water
+data/,mwefloodresponse.rda,conductivity_units,character,Units used for electrical conductivity measurement
+data/,mwefloodresponse.rda,total_dissolved_solids,numeric,Measured total dissolved solids in water
+data/,mwefloodresponse.rda,ph,numeric,Measured pH of the water
+data/,mwefloodresponse.rda,temperature_c,numeric,Water temperature in Celsius
+data/,mwefloodresponse.rda,turbidity_tube,numeric,Turbidity measured using a tube method
+data/,mwefloodresponse.rda,turbidity_tube_units,character,Units used for turbidity tube measurement
+data/,mwefloodresponse.rda,turbidity_electronic_ntu,numeric,Turbidity measured using an electronic turbidimeter
+data/,mwefloodresponse.rda,comments,character,Additional observations recorded by the surveyor
+data/,mwefloodresponse.rda,microbiological_test,character,Type of microbiological test performed
+data/,mwefloodresponse.rda,test_method,character,Method used to perform the microbiological test
+data/,mwefloodresponse.rda,sample_type,character,Type of water sample collected
+data/,mwefloodresponse.rda,sample_date,character,Date the water sample was collected
+data/,mwefloodresponse.rda,color_change_mpn,numeric,MPN count from color-change test indicating bacterial contamination
+data/,mwefloodresponse.rda,color_change_upper95,numeric,Upper 95 percent confidence interval for MPN count
+data/,mwefloodresponse.rda,color_change_health,character,Health risk classification based on color-change results
+data/,mwefloodresponse.rda,color_change_image,character,link of photo showing compartments that changed color

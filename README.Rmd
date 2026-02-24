@@ -1,0 +1,243 @@
+---
+output: github_document
+always_allow_html: true
+editor_options: 
+  markdown: 
+    wrap: 72
+  chunk_output_type: console
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%",
+  message = FALSE,
+  warning = FALSE,
+  fig.retina = 2,
+  fig.align = 'center'
+)
+```
+
+# Malawi Emergency Flood Response Water Point Survey (2019–2020)
+
+<!-- badges: start -->
+
+[![License: CC BY
+4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+<!-- badges: end -->
+
+This dataset contains water point assessment data collected during an
+emergency flood response in Malawi between 2019 and 2020. The survey was
+conducted under the BASEflow program to evaluate the status,
+functionality, and safety of water points affected by flooding events.
+
+Data collection and subsequent data cleaning were conducted using the
+mWater platform. The dataset includes geospatial coordinates,
+functionality status, user population estimates, reported mechanical and
+structural issues, pumping performance metrics, sediment observations,
+and field-based water quality test information.
+
+The survey covered the following districts in Malawi:
+
+-   Zomba
+
+-   Mangochi
+
+-   Chikwawa
+
+-   Balaka
+
+-   Nsanje
+
+-   Blantyre
+
+-   Machinga
+
+The primary purpose of this dataset is to support emergency response
+planning, infrastructure rehabilitation prioritization, and monitoring
+of rural water supply systems in flood-affected areas.
+
+This dataset can be used for:
+
+1.  Humanitarian WASH (Water, Sanitation, and Hygiene) response analysis
+
+2.  Geospatial mapping of water point functionality
+
+3.  Infrastructure vulnerability assessments
+
+4.  Evidence-based resource allocation during disaster recovery
+
+## Installation
+
+You can install the development version of mwefloodresponse from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("openwashdata/mwefloodresponse")
+```
+
+```{r}
+## Run the following code in console if you don't have the packages
+## install.packages(c("dplyr", "knitr", "readr", "stringr", "gt", "kableExtra"))
+library(dplyr)
+library(knitr)
+library(readr)
+library(stringr)
+library(gt)
+library(kableExtra)
+```
+
+Alternatively, you can download the individual datasets as a CSV or XLSX
+file from the table below.
+
+1.  Click Download CSV. A window opens that displays the CSV in your
+    browser.
+2.  Right-click anywhere inside the window and select "Save Page As...".
+3.  Save the file in a folder of your choice.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+extdata_path <- "https://github.com/openwashdata/mwefloodresponse/raw/main/inst/extdata/"
+
+read_csv("data-raw/dictionary.csv") |> 
+  distinct(file_name) |> 
+  dplyr::mutate(file_name = str_remove(file_name, ".rda")) |> 
+  dplyr::rename(dataset = file_name) |> 
+  mutate(
+    CSV = paste0("[Download CSV](", extdata_path, dataset, ".csv)"),
+    XLSX = paste0("[Download XLSX](", extdata_path, dataset, ".xlsx)")
+  ) |> 
+  knitr::kable()
+
+```
+
+## Data
+
+The package provides access to water point assessment data collected during an emergency flood response in Malawi between 2019 and 2020.
+
+```{r}
+library(mwefloodresponse)
+```
+
+### metadata
+
+The dataset `mwefloodresponse` contains `r nrow(mwefloodresponse)`
+observations and `r ncol(mwefloodresponse)` variables
+
+```{r}
+mwefloodresponse |> 
+  head(3) |> 
+  gt::gt() |>
+  gt::as_raw_html()
+```
+
+For an overview of the variable names, see the following table.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+readr::read_csv("data-raw/dictionary.csv") |>
+  dplyr::filter(file_name == "metadata.rda") |>
+  dplyr::select(variable_name:description) |> 
+  knitr::kable() |> 
+  kableExtra::kable_styling("striped") |> 
+  kableExtra::scroll_box(height = "200px")
+```
+
+## Example
+
+```{r}
+library(mwefloodresponse)
+
+# Visualization 1: Map of Water Points
+# Show waterpoint functionality
+# Load required libraries
+library(leaflet)
+library(dplyr)
+library(htmltools)
+library(scales)
+
+# Validate coordinates
+df <- mwefloodresponse %>%
+  mutate(
+    latitude = as.numeric(latitude),
+    longitude = as.numeric(longitude),
+    people_using = as.numeric(people_using)
+  ) %>%
+  filter(!is.na(latitude), !is.na(longitude))
+
+# Assign specific colors to each functional status category
+status_pal <- colorFactor(
+  palette = c(
+    "Functional" = "green",
+    "Partially Functional" = "orange",
+    "Not Functional" = "red"
+  ),
+  domain = df$functional_status
+)
+
+# Rescale number of people using the water point
+# Bubble size will range between 4 and 15
+df <- df %>%
+  mutate(
+    people_scaled = rescale(people_using, to = c(4, 15))
+  )
+
+# Displays district, community, status, population, problems, and water quality result
+df <- df %>%
+  mutate(
+    popup_content = paste0(
+      "<b>District:</b> ", district, "<br>",
+      "<b>Community:</b> ", community, "<br>",
+      "<b>Functional Status:</b> ", functional_status, "<br>",
+      "<b>People Using:</b> ", people_using, "<br>",
+      "<b>Problems Reported:</b> ", 
+        ifelse(is.na(problems_reported), "None reported", problems_reported), "<br>",
+      "<b>Water Quality Result:</b> ", 
+        ifelse(is.na(color_change_health), "No test result", color_change_health)
+    )
+  )
+
+leaflet(df) %>%
+  
+  # Add base map tiles
+  addProviderTiles("CartoDB.Positron") %>%
+  
+  # Add circle markers for each water point
+  addCircleMarkers(
+    lng = ~longitude,                  
+    lat = ~latitude,                   
+    radius = ~people_scaled,           
+    fillColor = ~status_pal(functional_status),  
+    color = "#333333",                 
+    weight = 1,                        
+    fillOpacity = 0.8,                 
+    popup = ~HTML(popup_content)      
+  ) %>%
+  
+  # Add legend to explain functional status colors
+  addLegend(
+    "bottomright",
+    pal = status_pal,
+    values = ~functional_status,
+    title = "Functional Status",
+    opacity = 1
+  )
+```
+
+## License
+
+Data are available as
+[CC-BY](https://github.com/openwashdata/%7B%7B%7Bpackagename%7D%7D%7D/blob/main/LICENSE.md).
+
+## Citation
+
+Please cite this package using:
+
+```{r}
+citation("mwefloodresponse")
+```

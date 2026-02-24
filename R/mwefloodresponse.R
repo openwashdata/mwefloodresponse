@@ -1,0 +1,48 @@
+#' mwefloodresponse: Malawi Emergency Flood Response Water Point Survey (2019–2020)
+#'
+#' This dataset contains water point assessment data collected during an emergency flood response in Malawi between 2019 and 2020. The survey was conducted under the BASEflow program to evaluate the status, functionality, and safety of water points affected by flooding events.
+#'
+#' @format A tibble with 319 rows and 40 variables
+#' \describe{
+#'   \item{submitted_on}{Date and time the survey record was submitted}
+#'   \item{district}{Administrative district where the water point is located}
+#'   \item{community}{Name of the local community or village}
+#'   \item{people_using}{Number of people currently using the water point}
+#'   \item{photo_water_point}{link of photo showing the water point}
+#'   \item{latitude}{GPS latitude of the water point}
+#'   \item{longitude}{GPS longitude of the water point}
+#'   \item{depth}{Measured depth of the water source}
+#'   \item{currently_submerged}{Indicator of whether the water point is submerged at the time of survey}
+#'   \item{likely_submerged}{Assessment of whether the water point was submerged during the recent flooding}
+#'   \item{functional_status}{Operational status of the water point}
+#'   \item{water_pump_possible}{Ability to pump water at the time of the visit}
+#'   \item{problems_reported}{Observed or reported problems at the water point}
+#'   \item{water_quality_problems}{Issues affecting water quality}
+#'   \item{civil_works_problems}{Problems affecting the water point infrastructure}
+#'   \item{photo_civil_works}{link of photo showing civil works problems}
+#'   \item{pump_problems}{Problems observed with the water pump}
+#'   \item{photo_pump_problems}{link of photo showing pump problems}
+#'   \item{pump_operational_feel}{Subjective assessment of the pump operation}
+#'   \item{time_to_pump_20l}{Time taken to pump 20 liters of water}
+#'   \item{strokes_to_yield}{Number of strokes required to yield water}
+#'   \item{sediment_presence}{Presence or absence of sediment in the water}
+#'   \item{water_quality_tests}{Field tests performed on water quality}
+#'   \item{electrical_conductivity}{Measured electrical conductivity of the water}
+#'   \item{conductivity_units}{Units used for electrical conductivity measurement}
+#'   \item{total_dissolved_solids}{Measured total dissolved solids in water}
+#'   \item{ph}{Measured pH of the water}
+#'   \item{temperature_c}{Water temperature in Celsius}
+#'   \item{turbidity_tube}{Turbidity measured using a tube method}
+#'   \item{turbidity_tube_units}{Units used for turbidity tube measurement}
+#'   \item{turbidity_electronic_ntu}{Turbidity measured using an electronic turbidimeter}
+#'   \item{comments}{Additional observations recorded by the surveyor}
+#'   \item{microbiological_test}{Type of microbiological test performed}
+#'   \item{test_method}{Method used to perform the microbiological test}
+#'   \item{sample_type}{Type of water sample collected}
+#'   \item{sample_date}{Date the water sample was collected}
+#'   \item{color_change_mpn}{MPN count from color-change test indicating bacterial contamination}
+#'   \item{color_change_upper95}{Upper 95 percent confidence interval for MPN count}
+#'   \item{color_change_health}{Health risk classification based on color-change results}
+#'   \item{color_change_image}{link of photo showing compartments that changed color}
+#' }
+"mwefloodresponse"

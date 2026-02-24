@@ -1,11 +1,33 @@
 Package: mwefloodresponse
-Title: What the Package Does (One Line, Title Case)
+Title: Malawi Emergency Flood Response Water Point Survey (2019–2020)
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R: c(
+    person("Emmanuel", "Mhango", , "emmanuellmhango@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-3197-6244")),
+    person("Lee", "Chambers", role = "ctb"),
+    person("Patrick", "Katholowamo", role = "ctb"),
+    person("Robert", "Gerald", role = "ctb"),
+    person("Laurent", "Levesque", role = "ctb"),
+    person("C", "Mkangara", role = "ctb"),
+    person("Austin", "Mtukula", role = "ctb"),
+    person("Rashid", "Kumbu", role = "ctb"),
+    person("Julius", "Kutaumbe", role = "ctb"),
+    person("Eveson", "Kadango", role = "ctb"),
+    person("Lemani", "Mussa", role = "ctb"),
+    person("Ernest", "Banda", role = "ctb"),
+    person("Finlay", "Paterson", role = "ctb"),
+    person("Harlod", "Danger", role = "ctb")
+  )
+Description: This dataset contains water point assessment data collected during an emergency flood response in Malawi between 2019 and 2020. The survey was conducted under the BASEflow program to evaluate the status, functionality, and safety of water points affected by flooding events.
+License: CC BY 4.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+Depends: 
+    R (>= 3.5)
+LazyData: true
+Language: en-GB
+Config/Needs/website: rmarkdown
+Date: 2026-02-20
+URL: https://github.com/openwashdata/mwefloodresponse
+BugReports: https://github.com/openwashdata/mwefloodresponse/issues
