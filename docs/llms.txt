@@ -105,10 +105,64 @@ mwefloodresponse |>
 
 For an overview of the variable names, see the following table.
 
+``` r
+readr::read_csv("data-raw/dictionary.csv") |>
+  dplyr::filter(file_name == "mwefloodresponse.rda") |>
+  dplyr::select(variable_name:description) |> 
+  knitr::kable() |> 
+  kableExtra::kable_styling("striped") |> 
+  kableExtra::scroll_box(height = "200px")
+#> Rows: 40 Columns: 5
+#> ── Column specification ────────────────────────────────────────────────────────
+#> Delimiter: ","
+#> chr (5): directory, file_name, variable_name, variable_type, description
+#> 
+#> ℹ Use `spec()` to retrieve the full column specification for this data.
+#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
 | variable_name | variable_type | description |
-|:--------------|:--------------|:------------|
-| NA            | NA            | NA          |
-| :————-        | :————-        | :———–       |
+|:---|:---|:---|
+| submitted_on | character | Date and time the survey record was submitted |
+| district | character | Administrative district where the water point is located |
+| community | character | Name of the local community or village |
+| people_using | numeric | Number of people currently using the water point |
+| photo_water_point | character | link of photo showing the water point |
+| latitude | numeric | GPS latitude of the water point |
+| longitude | numeric | GPS longitude of the water point |
+| depth | numeric | Measured depth of the water source |
+| currently_submerged | character | Indicator of whether the water point is submerged at the time of survey |
+| likely_submerged | character | Assessment of whether the water point was submerged during the recent flooding |
+| functional_status | character | Operational status of the water point |
+| water_pump_possible | character | Ability to pump water at the time of the visit |
+| problems_reported | character | Observed or reported problems at the water point |
+| water_quality_problems | character | Issues affecting water quality |
+| civil_works_problems | character | Problems affecting the water point infrastructure |
+| photo_civil_works | character | link of photo showing civil works problems |
+| pump_problems | character | Problems observed with the water pump |
+| photo_pump_problems | character | link of photo showing pump problems |
+| pump_operational_feel | character | Subjective assessment of the pump operation |
+| time_to_pump_20l | numeric | Time taken to pump 20 liters of water |
+| strokes_to_yield | numeric | Number of strokes required to yield water |
+| sediment_presence | character | Presence or absence of sediment in the water |
+| water_quality_tests | character | Field tests performed on water quality |
+| electrical_conductivity | numeric | Measured electrical conductivity of the water |
+| conductivity_units | character | Units used for electrical conductivity measurement |
+| total_dissolved_solids | numeric | Measured total dissolved solids in water |
+| ph | numeric | Measured pH of the water |
+| temperature_c | numeric | Water temperature in Celsius |
+| turbidity_tube | numeric | Turbidity measured using a tube method |
+| turbidity_tube_units | character | Units used for turbidity tube measurement |
+| turbidity_electronic_ntu | numeric | Turbidity measured using an electronic turbidimeter |
+| comments | character | Additional observations recorded by the surveyor |
+| microbiological_test | character | Type of microbiological test performed |
+| test_method | character | Method used to perform the microbiological test |
+| sample_type | character | Type of water sample collected |
+| sample_date | character | Date the water sample was collected |
+| color_change_mpn | numeric | MPN count from color-change test indicating bacterial contamination |
+| color_change_upper95 | numeric | Upper 95 percent confidence interval for MPN count |
+| color_change_health | character | Health risk classification based on color-change results |
+| color_change_image | character | link of photo showing compartments that changed color |
 
 ## Example
 
