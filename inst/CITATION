@@ -11,4 +11,4 @@ bibentry(bibtype = "Misc",
          url = "https://github.com/openwashdata/mwefloodresponse",
          abstract = "This dataset contains water point assessment data collected during an emergency flood response in Malawi between 2019 and 2020. The survey was conducted under the BASEflow program to evaluate the status, functionality, and safety of water points affected by flooding events.",
          keywords = "open data,washdata,floods,emergency response,water points,water quality,Malawi,sanitation,wash,water",
-         version = "0.0.0.9000")
+         version = "0.0.2")

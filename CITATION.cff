@@ -8,7 +8,7 @@ message: 'To cite package "mwefloodresponse" in publications use:'
 type: dataset
 license: CC-BY-4.0
 title: 'mwefloodresponse: Malawi Emergency Flood Response Water Point Survey (2019–2020)'
-version: 0.0.0.9000
+version: 0.0.2
 doi: 10.5281/zenodo.18755616
 abstract: This dataset contains water point assessment data collected during an emergency
   flood response in Malawi between 2019 and 2020. The survey was conducted under the
