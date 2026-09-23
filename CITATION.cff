@@ -1,0 +1,41 @@
+# ------------------------------------------------
+# CITATION.cff file created with {cffr} R package
+# See also: https://docs.ropensci.org/cffr/
+# ------------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "mwefloodresponse" in publications use:'
+type: dataset
+license: CC-BY-4.0
+title: 'mwefloodresponse: Malawi Emergency Flood Response Water Point Survey (2019–2020)'
+version: 0.0.0.9000
+doi: 10.5281/zenodo.18755616
+abstract: This dataset contains water point assessment data collected during an emergency
+  flood response in Malawi between 2019 and 2020. The survey was conducted under the
+  BASEflow program to evaluate the status, functionality, and safety of water points
+  affected by flooding events.
+authors:
+- family-names: Mhango
+  given-names: Emmanuel
+  email: emmanuellmhango@gmail.com
+  orcid: https://orcid.org/0000-0003-3197-6244
+repository-code: https://github.com/openwashdata/mwefloodresponse
+url: https://github.com/openwashdata/mwefloodresponse
+date-released: '2026-09-23'
+contact:
+- family-names: Mhango
+  given-names: Emmanuel
+  email: emmanuellmhango@gmail.com
+  orcid: https://orcid.org/0000-0003-3197-6244
+keywords:
+- open data
+- washdata
+- floods
+- emergency response
+- water points
+- water quality
+- Malawi
+- sanitation
+- wash
+- water
+

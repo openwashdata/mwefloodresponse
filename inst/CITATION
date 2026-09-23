@@ -1,0 +1,14 @@
+
+bibentry(bibtype = "Misc",
+         key = "mhango:2026",
+         title = "mwefloodresponse: Malawi Emergency Flood Response Water Point Survey (2019–2020)",
+         author = person(given = "Emmanuel",
+                         family = "Mhango",
+                         email = "emmanuellmhango@gmail.com",
+                         comment = c(ORCID = "0000-0003-3197-6244")),
+         year = "2026",
+         doi = "10.5281/zenodo.18755616",
+         url = "https://github.com/openwashdata/mwefloodresponse",
+         abstract = "This dataset contains water point assessment data collected during an emergency flood response in Malawi between 2019 and 2020. The survey was conducted under the BASEflow program to evaluate the status, functionality, and safety of water points affected by flooding events.",
+         keywords = "open data,washdata,floods,emergency response,water points,water quality,Malawi,sanitation,wash,water",
+         version = "0.0.0.9000")
