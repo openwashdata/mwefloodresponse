@@ -235,7 +235,7 @@ leaflet(df) %>%
 ## License
 
 Data are available as
-[CC-BY](https://github.com/openwashdata/%7B%7B%7Bpackagename%7D%7D%7D/blob/main/LICENSE.md).
+[CC-BY](https://github.com/openwashdata/mwefloodresponse/blob/main/LICENSE.md).
 
 ## Citation
 
