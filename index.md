@@ -4,6 +4,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18755616.svg)](https://zenodo.org/doi/10.5281/zenodo.18755616)
 [![R-CMD-check](https://github.com/openwashdata/mwefloodresponse/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/openwashdata/mwefloodresponse/actions/workflows/R-CMD-check.yaml)
 
+A data package published by [openwashdata](https://openwashdata.org).
+
 This dataset contains water point assessment data collected during an
 emergency flood response in Malawi between 2019 and 2020. The survey was
 conducted under the BASEflow program to evaluate the status,
