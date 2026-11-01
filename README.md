@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Malawi Emergency Flood Response Water Point Survey (2019–2020)
+# Malawi Emergency Flood Response Water Point Survey (2019–2020) <a href="https://openwashdata.org"><img src="man/figures/logo.png" align="right" width="120" alt="openwashdata" /></a>
 
 <!-- badges: start -->
 
@@ -12,8 +12,6 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18755616.svg)](https://zenodo.org/doi/10.5281/zenodo.18755616)
 [![R-CMD-check](https://github.com/openwashdata/mwefloodresponse/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/openwashdata/mwefloodresponse/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
-
-A data package published by [openwashdata](https://openwashdata.org).
 
 This dataset contains water point assessment data collected during an
 emergency flood response in Malawi between 2019 and 2020. The survey was
@@ -1184,6 +1182,8 @@ Data are available as
 [CC-BY](https://github.com/openwashdata/mwefloodresponse/blob/main/LICENSE.md).
 
 ## Citation
+
+Published by openwashdata, <https://openwashdata.org>.
 
 Please cite this package using:
 
